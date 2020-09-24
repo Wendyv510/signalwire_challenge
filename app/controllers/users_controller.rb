@@ -22,4 +22,3 @@ class UsersController < ApplicationController
         params.require(:user).permit(:user_id, :title, :tags) 
     end 
 end
-end
