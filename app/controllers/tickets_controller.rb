@@ -1,15 +1,16 @@
 class TicketsController < ApplicationController
 
     def index 
-        @tickets = Ticket.all 
+        tickets = Ticket.all
+        render json: TicketSerializer.new(tickets) 
     end 
 
     def new 
-        @ticket = Ticket.new 
+        ticket = Ticket.new 
     end 
 
     def create 
-        @ticket = Ticket.new(ticket_params) 
+        ticket = Ticket.new(ticket_params) 
         
     end 
 
@@ -19,5 +20,4 @@ class TicketsController < ApplicationController
     def ticket_params 
         params.require(:user).permit(:user_id, :title) 
     end 
-end
 end

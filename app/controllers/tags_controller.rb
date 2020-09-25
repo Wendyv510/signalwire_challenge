@@ -1,15 +1,16 @@
 class TagsController < ApplicationController
 
     def index 
-        @tag = Tag.all 
+        tag = Tag.all 
+        render json: TagSerializer.new(tags)
     end 
 
     def new 
-        @tag = Tag.new 
+        tag = Tag.new 
     end 
 
     def create 
-        @tag = Tag.new(tag_params) 
+        tag = Tag.new(tag_params) 
         
     end 
 
