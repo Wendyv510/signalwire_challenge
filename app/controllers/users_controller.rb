@@ -11,8 +11,8 @@ class UsersController < ApplicationController
     def create 
         user = User.new(user_params) 
         if user.save 
-           ticket = Ticket.create(:user_id [:user][:user_id], :title [:user][:title])
-           tag = Tag.create(:tags [:user][:tags])
+         Ticket.create(:user_id [:user][:user_id], :title [:user][:title])
+         Tag.create(:tags [:user][:tags]) 
         else 
             render json: {errors: user.errors.full_messages}, status: :unproccessible_entity
         end 

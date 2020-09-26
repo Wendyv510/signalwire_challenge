@@ -1,7 +1,7 @@
 class TicketsController < ApplicationController
 
     def index 
-        tickets = Ticket.all
+        @tickets = Ticket.all
         render json: TicketSerializer.new(tickets) 
     end 
 
