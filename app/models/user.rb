@@ -1,4 +1,5 @@
 class User < ApplicationRecord
     
-   # accepts_nested_attributes_for :tickets
+  validates :title, :presence => true 
+  validates :tags, :length => {:maximum => 5}
 end
