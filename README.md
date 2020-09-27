@@ -14,7 +14,9 @@ Installation:
 
  -thin start --ssl
  
- -open https://localhost:3000/users in browser to be able to view user json data & https://localhost:3000/tickets to view tickets json data & https://localhost:3000/tags to view tags json data
+ -open https://localhost:3000/users in browser to be able to view user json data 
+
+ -run rails test to run tests 
 
 Description: The SignalWire Challenge app is to showcase my capabilities building a Rails API app, implementing tests, and WebHooks. 
 
