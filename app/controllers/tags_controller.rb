@@ -1,7 +1,7 @@
 class TagsController < ApplicationController
 
     def index 
-        tag = Tag.all 
+        tags = Tag.all 
         render json: TagSerializer.new(tags)
     end 
 
@@ -11,7 +11,11 @@ class TagsController < ApplicationController
 
     def create 
         tag = Tag.new(tag_params) 
-        
+        if tag.save 
+            render json: TagSerializer.new(tag)
+        else 
+            render json: {errors: user.errors.full_messages}, status: 422
+        end 
     end 
 
 
@@ -20,5 +24,4 @@ class TagsController < ApplicationController
     def tag_params 
         params.require(:user).permit(:tags) 
     end 
-end
 end

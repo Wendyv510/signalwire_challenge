@@ -1,7 +1,7 @@
 class TicketsController < ApplicationController
 
     def index 
-        @tickets = Ticket.all
+        tickets = Ticket.all
         render json: TicketSerializer.new(tickets) 
     end 
 
@@ -11,7 +11,11 @@ class TicketsController < ApplicationController
 
     def create 
         ticket = Ticket.new(ticket_params) 
-        
+        if ticket.save 
+            render json: TicketSerializer.new(ticket)
+        else 
+            render json: {errors: user.errors.full_messages}, status: 422
+        end 
     end 
 
 
