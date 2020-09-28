@@ -11,9 +11,8 @@ class UsersController < ApplicationController
     def create 
         user = User.new(user_params) 
         if user.save 
-         render json: UserSerializer.new(users)
-         render json: TicketSerializer.new(ticket)
-         render json: TagSerializer.new(tag)
+         ticket = Ticket.new(user_id: [:user][:id], :title [:user][:title])
+         tag = Tag.new(tags: [:user][:tags])
         else 
             render json: {errors: user.errors.full_messages}, status: 422
         end 

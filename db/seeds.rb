@@ -7,4 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.create(title: "My Title", tags: ["tag1", "tag2"])
+user = User.create(title: "My Title", tags: ["tag1", "tag2"])
+
+ticket = Ticket.create(user_id: user.id, title: user.title)
+
+tag = Tag.create(tags: user.tags)
